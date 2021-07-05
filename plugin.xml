@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.example.sample.plugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>PluginName</name>
+    <js-module name="PluginName" src="www/PluginName.js">
+        <clobbers target="PluginName" />
+    </js-module>
+    <platform name="android">
+	 <framework src="src/android/Eclinic.gradle" custom="true" type="gradleReference" />
+	 <framework src="com.android.support:appcompat-v7:+" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="PluginName">
+                <param name="android-package" value="com.example.sample.plugin.PluginName" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+			
+            <activity android:label="New Activity" android:name="com.example.sample.plugin.NewActivity"></activity>
+			  <activity android:label="Call Activity" android:name="com.example.sample.plugin.EclinicCallActivity"></activity>
+			
+        </config-file>
+		
+        <config-file parent="/*" target="AndroidManifest.xml">
+		
+		 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+					 <uses-feature
+    	android:glEsVersion="0x00020000"
+    	android:required="true"/>
+		<uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.camera.back" />
+    <uses-feature android:name="android.hardware.microphone" />
+    <uses-feature android:name="android.hardware.audio.low_latency" />
+		</config-file>
+        <source-file src="src/android/PluginName.java" target-dir="src/com/example/sample/plugin" />
+        <source-file src="src/android/NewActivity.java" target-dir="src/com/example/sample/plugin" />
+		<source-file src="src/android/EclinicCallActivity.java" target-dir="src/com/example/sample/plugin" />
+        <source-file src="src/android/activity_new.xml" target-dir="res/layout"/>
+		<source-file src="src/android/activity_ecliniccall.xml" target-dir="res/layout"/>
+		<source-file src="libs/jcf-release.aar" target-dir="libs" />
+		<source-file src="libs/sdk.aar" target-dir="libs" />
+    </platform>
+</plugin>
