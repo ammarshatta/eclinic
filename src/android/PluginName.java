@@ -47,7 +47,7 @@ public class PluginName extends CordovaPlugin {
 			if(hasAllPermissions(permissions)){
 				this.openNewActivity(context);
 			}else{
-			PluginResult pluginResult = new PluginResult(PluginResult.Status.Error,"Please Accept Permissions");
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR ,"Please Accept Permissions");
 			callbackContext.sendPluginResult(pluginResult);
 			return false;
 			}
@@ -64,7 +64,7 @@ public class PluginName extends CordovaPlugin {
 			callbackContext.sendPluginResult(pluginResult);
 			return true;
 			}else{
-			PluginResult pluginResult = new PluginResult(PluginResult.Status.Error,"Not Authorized");
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR ,"Not Authorized");
 			callbackContext.sendPluginResult(pluginResult);
 			return false;
 			}
