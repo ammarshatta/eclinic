@@ -32,6 +32,12 @@ EclinicPlugin.prototype.isAuthorized = function(message, duration, successCallba
   options.duration = duration;
   cordova.exec(successCallback, errorCallback, 'PluginName', 'isAuthorized', [options]);
 }
+EclinicPlugin.prototype.requestPermissions = function(message, duration, successCallback, errorCallback) {
+  var options = {};
+  options.message = message;
+  options.duration = duration;
+  cordova.exec(successCallback, errorCallback, 'PluginName', 'requestPermissions', [options]);
+}
 
 
 // Installation constructor that binds EclinicPlugin to window

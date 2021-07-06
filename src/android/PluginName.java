@@ -19,6 +19,17 @@ public class PluginName extends CordovaPlugin {
 
 	 // instance of the call back when requesting or checking authorisation
 	private CallbackContext authReqCallbackCtx;
+	
+	private String [] permissions = { Manifest.permission.ACCESS_NETWORK_STATE,
+			Manifest.permission.BLUETOOTH,
+			Manifest.permission.CAMERA,
+			Manifest.permission.INTERNET,
+			Manifest.permission.MODIFY_AUDIO_SETTINGS,
+			Manifest.permission.READ_PHONE_STATE,
+			Manifest.permission.RECORD_AUDIO,
+			Manifest.permission.BROADCAST_STICKY
+			};
+	 private static final int REQUEST_CODE = 1;
   
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
@@ -32,19 +43,13 @@ public class PluginName extends CordovaPlugin {
         if(action.equals("new_activity")) {
 			
            
-			String [] permissions = { Manifest.permission.ACCESS_NETWORK_STATE,
-			Manifest.permission.BLUETOOTH,
-			Manifest.permission.CAMERA,
-			Manifest.permission.INTERNET,
-			Manifest.permission.MODIFY_AUDIO_SETTINGS,
-			Manifest.permission.READ_PHONE_STATE,
-			Manifest.permission.RECORD_AUDIO,
-			Manifest.permission.BROADCAST_STICKY
-			};
+			
 			if(hasAllPermissions(permissions)){
 				this.openNewActivity(context);
 			}else{
-				cordova.requestPermissions(this, 11, permissions);
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.Error,"Please Accept Permissions");
+			callbackContext.sendPluginResult(pluginResult);
+			return false;
 			}
 			
 			PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
@@ -53,23 +58,30 @@ public class PluginName extends CordovaPlugin {
         }
 		if(action.equals("isAuthorized")) {
 			
-			String [] permissions = { Manifest.permission.ACCESS_NETWORK_STATE,
-			Manifest.permission.BLUETOOTH,
-			Manifest.permission.CAMERA,
-			Manifest.permission.INTERNET,
-			Manifest.permission.MODIFY_AUDIO_SETTINGS,
-			Manifest.permission.READ_PHONE_STATE,
-			Manifest.permission.RECORD_AUDIO,
-			Manifest.permission.BROADCAST_STICKY
-			};
+			
 			if(hasAllPermissions(permissions)){
 			PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
 			callbackContext.sendPluginResult(pluginResult);
 			return true;
 			}else{
-				PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR,"access denied ammar");
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.Error,"Not Authorized");
 			callbackContext.sendPluginResult(pluginResult);
 			return false;
+			}
+			
+        }
+		
+		if(action.equals("requestPermissions")) {
+			
+			if(hasAllPermissions(permissions)){
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, true);
+			callbackContext.sendPluginResult(pluginResult);
+			
+			return true;
+			}else{
+			cordova.requestPermissions(this, REQUEST_CODE, permissions);
+			
+			return true;
 			}
 			
         }
@@ -109,7 +121,7 @@ public class PluginName extends CordovaPlugin {
 	
 	@Override
   public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults) throws JSONException {
-    if (requestCode == 11 ) {
+    if (requestCode == REQUEST_CODE ) {
       for (int i = 0; i < grantResults.length; i++) {
         if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
           String errmsg = "Permission denied ";
@@ -126,5 +138,8 @@ public class PluginName extends CordovaPlugin {
      
     }
   }
+	
+	
+	
 	
 }
