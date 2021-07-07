@@ -23,6 +23,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import android.support.v4.app.ActivityCompat;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 
 
@@ -35,16 +38,14 @@ public class EclinicCallActivity extends Activity {
 
     // !!! Specify your own Server and Address !!!
 
-   public static final String DEFAULT_SERVER =//"adkdcvaexpjg-e.mohap.gov.ae:9443";
-    "telemedicine.cchmc.org";
-    public static final String DEFAULT_ADDRESS =
-        //"47585";
-       "device.test";
-  /* public static final String DEFAULT_SERVER = "jabberguestsandbox.cisco.com";
-    public static final String DEFAULT_ADDRESS = "5555";*/
+   public static  String DEFAULT_SERVER ="";
+    //"telemedicine.cchmc.org";
+    public static  String DEFAULT_ADDRESS ="";
+      
+     //  "device.test";
+  
 
-
-
+	public static final String EXTRA_PARAMS = "params";
     private Uri mCallUri;
     private JabberGuestCall mInstance;
 
@@ -81,6 +82,13 @@ public class EclinicCallActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 		Log.d("Ammar", "onCreate");
+		Intent startIntent = getIntent();
+            String paramStr = startIntent.getStringExtra(EXTRA_PARAMS);
+            JSONObject params;
+            try { params = new JSONObject(paramStr); }
+            catch (JSONException e) { params = new JSONObject(); }
+            DEFAULT_SERVER = params.optString("server");
+            DEFAULT_ADDRESS = params.optString("address");
         super.onCreate(savedInstanceState);
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));

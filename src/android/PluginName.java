@@ -29,7 +29,9 @@ public class PluginName extends CordovaPlugin {
 			Manifest.permission.RECORD_AUDIO,
 			Manifest.permission.BROADCAST_STICKY
 			};
-	 private static final int REQUEST_CODE = 1;
+	private static final int REQUEST_CODE = 1;
+	
+
   
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
@@ -45,7 +47,8 @@ public class PluginName extends CordovaPlugin {
            
 			
 			if(hasAllPermissions(permissions)){
-				this.openNewActivity(context);
+				
+				this.openNewActivity(context,args);
 			}else{
 			PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR ,"Please Accept Permissions");
 			callbackContext.sendPluginResult(pluginResult);
@@ -91,7 +94,7 @@ public class PluginName extends CordovaPlugin {
         return false;
     }
 
-    private void openNewActivity(Context context) {
+    private void openNewActivity(Context context,JSONArray args) {
        // Intent intent = new Intent(context, NewActivity.class);
        // this.cordova.getActivity().startActivity(intent);
 	   
@@ -102,6 +105,7 @@ public class PluginName extends CordovaPlugin {
             Context context = cordova.getActivity()
                     .getApplicationContext();
             Intent intent = new Intent(context, EclinicCallActivity.class);
+			intent.putExtra(EclinicCallActivity.EXTRA_PARAMS, args.toString());
             cordova.getActivity().startActivity(intent);
         }
     });
