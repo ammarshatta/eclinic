@@ -5,7 +5,7 @@
 // }
 
 // plugin.prototype.new_activity = function() {
-    // exec(function(res){}, function(err){}, "PluginName", "new_activity", []);
+    // exec(function(res){}, function(err){}, "EclinicPlugin", "new_activity", []);
 // }
 
 // module.exports = new plugin();
@@ -21,7 +21,7 @@ EclinicPlugin.prototype.new_activity = function(server, address, successCallback
   var options = {};
   options.message = message;
   options.duration = duration;
-  cordova.exec(successCallback, errorCallback, 'PluginName', 'new_activity', [options]);
+  cordova.exec(successCallback, errorCallback, 'EclinicPlugin', 'new_activity', [options]);
 }
 
 // The function that passes work along to native shells
@@ -30,12 +30,12 @@ EclinicPlugin.prototype.isAuthorized = function(message, duration, successCallba
   var options = {};
   options.message = message;
   options.duration = duration;
-  cordova.exec(successCallback, errorCallback, 'PluginName', 'isAuthorized', [options]);
+  cordova.exec(successCallback, errorCallback, 'EclinicPlugin', 'isAuthorized', [options]);
 }
 EclinicPlugin.prototype.requestPermissions = function( successCallback, errorCallback) {
   var options = {};
  
-  cordova.exec(successCallback, errorCallback, 'PluginName', 'requestPermissions', [options]);
+  cordova.exec(successCallback, errorCallback, 'EclinicPlugin', 'requestPermissions', [options]);
 }
 
 
