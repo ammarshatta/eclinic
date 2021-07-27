@@ -84,6 +84,7 @@ public class EclinicCallActivity extends Activity {
 		Log.d("Ammar", "onCreate");
 		Intent startIntent = getIntent();
             String paramStr = startIntent.getStringExtra(EXTRA_PARAMS);
+			Log.d("Ammar-paramStr", paramStr );
             JSONObject params;
             try { params = new JSONObject(paramStr); }
             catch (JSONException e) { params = new JSONObject(); }

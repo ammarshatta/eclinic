@@ -45,7 +45,7 @@ public class EclinicPlugin extends CordovaPlugin {
         if(action.equals("new_activity")) {
 			
            
-			
+			Log.i("ammar-first-args", args.toString());
 			if(hasAllPermissions(permissions)){
 				
 				this.openNewActivity(context,args);
