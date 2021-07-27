@@ -88,7 +88,10 @@ public class EclinicCallActivity extends Activity {
             try { params = new JSONObject(paramStr); }
             catch (JSONException e) { params = new JSONObject(); }
             DEFAULT_SERVER = params.optString("server");
+
             DEFAULT_ADDRESS = params.optString("address");
+	Log.d("Ammar", DEFAULT_SERVER );
+	Log.d("Ammar", DEFAULT_ADDRESS );
         super.onCreate(savedInstanceState);
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));
