@@ -19,8 +19,8 @@ function EclinicPlugin() {}
 // Message is a string, duration may be 'long' or 'short'
 EclinicPlugin.prototype.new_activity = function(server, address, successCallback, errorCallback) {
   var options = {};
-  options.message = message;
-  options.duration = duration;
+  options.server = server;
+  options.address = address;
   cordova.exec(successCallback, errorCallback, 'EclinicPlugin', 'new_activity', [options]);
 }
 
