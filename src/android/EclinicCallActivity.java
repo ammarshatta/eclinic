@@ -38,7 +38,7 @@ public class EclinicCallActivity extends Activity {
 
     // !!! Specify your own Server and Address !!!
 
-   public static  String DEFAULT_SERVER ="";
+	public static  String DEFAULT_SERVER ="";
     //"telemedicine.cchmc.org";
     public static  String DEFAULT_ADDRESS ="";
       
@@ -87,12 +87,12 @@ public class EclinicCallActivity extends Activity {
 			Log.d("Ammar-paramStr", paramStr );
             JSONObject params;
             try { params = new JSONObject(paramStr); }
-            catch (JSONException e) { params = new JSONObject(); }
+            catch (JSONException e) { params = new JSONObject(); Log.d("Ammar-errorjson", e );}
             DEFAULT_SERVER = params.optString("server");
 
             DEFAULT_ADDRESS = params.optString("address");
-	Log.d("Ammar", DEFAULT_SERVER );
-	Log.d("Ammar", DEFAULT_ADDRESS );
+	Log.d("Ammar-DEFAULT_SERVER", DEFAULT_SERVER );
+	Log.d("Ammar-DEFAULT_ADDRESS", DEFAULT_ADDRESS );
         super.onCreate(savedInstanceState);
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));
