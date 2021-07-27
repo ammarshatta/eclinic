@@ -1,4 +1,4 @@
-package com.example.sample.plugin;
+package com.linkdev.eclinic.plugin;
 
 import android.app.Activity;
 import android.os.Bundle;

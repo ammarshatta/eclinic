@@ -1,4 +1,4 @@
-package com.example.sample.plugin;
+package com.linkdev.eclinic.plugin;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.content.pm.PackageManager;
 import org.apache.cordova.PluginResult;
 
 
-public class PluginName extends CordovaPlugin {
+public class EclinicPlugin extends CordovaPlugin {
 
 	 // instance of the call back when requesting or checking authorisation
 	private CallbackContext authReqCallbackCtx;

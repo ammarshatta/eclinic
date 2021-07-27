@@ -2,7 +2,7 @@
  * Copyright (c) 2015 Cisco and/or its affiliates.  All rights reserved.
  */
 
-package com.example.sample.plugin;
+package com.linkdev.eclinic.plugin;
 
 import java.util.List;
 import android.util.Log;

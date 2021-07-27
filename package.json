@@ -1,11 +1,11 @@
 {
-  "name": "com.example.sample.plugin",
+  "name": "com.linkdev.eclinic.plugin",
   "version": "0.0.1",
   "description": "",
   "cordova": {
-    "id": "com.example.sample.plugin",
+    "id": "com.linkdev.eclinic.plugin",
     "platforms": [
-      "android"
+      "android","ios"
     ]
   },
   "keywords": [

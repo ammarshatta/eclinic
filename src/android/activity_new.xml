@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.example.sample.plugin.NewActivity">
+    tools:context="com.linkdev.eclinic.plugin.NewActivity">
 
     <TextView
         android:layout_width="fill_parent"
