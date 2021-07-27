@@ -87,7 +87,7 @@ public class EclinicCallActivity extends Activity {
 			Log.d("Ammar-paramStr", paramStr );
             JSONObject params;
             try { params = new JSONObject(paramStr); }
-            catch (JSONException e) { params = new JSONObject(); Log.d("Ammar-errorjson", e );}
+            catch (JSONException e) { params = new JSONObject(); Log.d("Ammar-errorjson","" );}
             DEFAULT_SERVER = params.optString("server");
 
             DEFAULT_ADDRESS = params.optString("address");
