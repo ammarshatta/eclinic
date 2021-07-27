@@ -39,7 +39,7 @@
     <uses-feature android:name="android.hardware.microphone" />
     <uses-feature android:name="android.hardware.audio.low_latency" />
 		</config-file>
-        <source-file src="src/android/PluginName.java" target-dir="src/com/linkdev/eclinic/plugin" />
+        <source-file src="src/android/EclinicPlugin.java" target-dir="src/com/linkdev/eclinic/plugin" />
         <source-file src="src/android/NewActivity.java" target-dir="src/com/linkdev/eclinic/plugin" />
 		<source-file src="src/android/EclinicCallActivity.java" target-dir="src/com/linkdev/eclinic/plugin" />
         <source-file src="src/android/activity_new.xml" target-dir="res/layout"/>
