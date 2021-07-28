@@ -97,15 +97,21 @@ public class EclinicPlugin extends CordovaPlugin {
     private void openNewActivity(Context context,JSONArray args) {
        // Intent intent = new Intent(context, NewActivity.class);
        // this.cordova.getActivity().startActivity(intent);
-	   
-	   cordova.getActivity().runOnUiThread(new Runnable() {
+	JSONObject options;
+      try {
+         options = args.getJSONObject(0);
+      } catch (JSONException e) {
+        context.error("Error encountered: " + e.getMessage());
+        return false;
+      }
+	  cordova.getActivity().runOnUiThread(new Runnable() {
         @Override
         public void run() {
 			
             Context context = cordova.getActivity()
                     .getApplicationContext();
             Intent intent = new Intent(context, EclinicCallActivity.class);
-			intent.putExtra(EclinicCallActivity.EXTRA_PARAMS, args.getJSONObject(0).toString());
+			intent.putExtra(EclinicCallActivity.EXTRA_PARAMS, options.toString());
             cordova.getActivity().startActivity(intent);
         }
     });
