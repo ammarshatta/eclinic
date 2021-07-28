@@ -102,7 +102,7 @@ public class EclinicPlugin extends CordovaPlugin {
          options = args.getJSONObject(0);
       } catch (JSONException e) {
         authReqCallbackCtx.error("Error encountered: " + e.getMessage());
-        return false;
+        return ;
       }
 	  cordova.getActivity().runOnUiThread(new Runnable() {
         @Override
