@@ -28,8 +28,7 @@ EclinicPlugin.prototype.new_activity = function(server, address, successCallback
 // Message is a string, duration may be 'long' or 'short'
 EclinicPlugin.prototype.isAuthorized = function( successCallback, errorCallback) {
   var options = {};
-  options.message = message;
-  options.duration = duration;
+
   cordova.exec(successCallback, errorCallback, 'EclinicPlugin', 'isAuthorized', [options]);
 }
 EclinicPlugin.prototype.requestPermissions = function( successCallback, errorCallback) {
