@@ -26,7 +26,7 @@ EclinicPlugin.prototype.new_activity = function(server, address, successCallback
 
 // The function that passes work along to native shells
 // Message is a string, duration may be 'long' or 'short'
-EclinicPlugin.prototype.isAuthorized = function(message, duration, successCallback, errorCallback) {
+EclinicPlugin.prototype.isAuthorized = function( successCallback, errorCallback) {
   var options = {};
   options.message = message;
   options.duration = duration;
