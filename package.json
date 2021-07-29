@@ -5,13 +5,14 @@
   "cordova": {
     "id": "com.linkdev.eclinic.plugin",
     "platforms": [
-      "android","ios"
+      "android",
+      "ios"
     ]
   },
   "keywords": [
     "ecosystem:cordova",
     "cordova-android"
   ],
-  "author": "",
-  "license": "ISC"
+  "author": "ammar-hassan",
+  "license": "mit"
 }

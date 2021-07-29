@@ -47,4 +47,44 @@
 		<source-file src="libs/jcf-release.aar" target-dir="libs" />
 		<source-file src="libs/sdk.aar" target-dir="libs" />
     </platform>
+    
+    
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="EclinicPlugin"><param name="ios-package" value="EclinicPlugin" /></feature>
+        </config-file>
+    <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>This app needs access to the camera to make Video calls.</string>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSLocalNetworkUsageDescription">
+            <string>This app needs access to the Network to make Video calls.</string>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>This app needs access to the icrophone to make Video calls.</string>
+    </config-file>
+
+
+        <source-file src="src/ios/EclinicPlugin.m" />
+        <source-file src="src/ios/FirstViewController.h" />
+        <source-file src="src/ios/FirstViewController.m" />
+        <resource-file src="src/ios/FirstViewController.xib"/>
+
+    <source-file src="src/ios/MyGJController.h" />
+        <source-file src="src/ios/MyGJController.m" />
+<!--        <resource-file src="src/ios/SecondViewController.xib"/>-->
+    <framework src="src/ios/JabberGuest.framework" custom="true"/>
+    <resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
+     <framework src="AVFoundation.framework" />
+     <framework src="VideoToolbox.framework" />
+      <framework src="AudioToolbox.framework" />
+      <framework src="CoreMedia.framework" />
+    <framework src="MediaPlayer.framework" />
+    <framework src="QuartzCore.framework" />
+    <framework src="Security.framework" />
+    <framework src="CallKit.framework" />
+    <framework src="libc++.dylib" />
+    <framework src="libiconv.dylib" />
+        <framework src="libresolv.dylib" />
+    
+    </platform>
 </plugin>
