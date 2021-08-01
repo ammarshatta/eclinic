@@ -5,7 +5,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JabberGuest.h"
+#import "JabberGuest/JabberGuest.h"
 
 @interface MyGJController : CJGuestCallViewController
 
