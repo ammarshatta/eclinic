@@ -63,8 +63,10 @@
             <string>This app needs access to the icrophone to make Video calls.</string>
     </config-file>
 
-		<framework src="src/ios/JabberGuest.framework" custom="true" embed="true"/>
+		<!-- <framework src="src/ios/JabberGuest.framework" custom="true" embed="true"/> -->
 		<!-- <source-file src="src/ios/JabberGuest.framework" target-dir="lib" framework="true" /> -->
+		
+		<source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true" custom="true" />
 		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" />
 		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" />
 		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h" />
