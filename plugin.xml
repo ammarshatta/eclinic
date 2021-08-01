@@ -63,14 +63,14 @@
             <string>This app needs access to the icrophone to make Video calls.</string>
     </config-file>
 
-
+		<framework src="src/ios/JabberGuest.framework" custom="true" embed="true"/>
+		<source-file src="src/ios/JabberGuest.framework" target-dir="lib" framework="true" />
+		<resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
         <source-file src="src/ios/EclinicPlugin.m" />
         <source-file src="src/ios/FirstViewController.h" />
         <source-file src="src/ios/FirstViewController.m" />
         <resource-file src="src/ios/FirstViewController.xib"/>
-		<framework src="src/ios/JabberGuest.framework" custom="true" embed="true"/>
-		<source-file src="src/ios/JabberGuest.framework" target-dir="lib" framework="true" />
-		<resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
+		
     <source-file src="src/ios/MyGJController.h" />
         <source-file src="src/ios/MyGJController.m" />
 <!--        <resource-file src="src/ios/SecondViewController.xib"/>-->
