@@ -68,7 +68,8 @@
         <source-file src="src/ios/FirstViewController.h" />
         <source-file src="src/ios/FirstViewController.m" />
         <resource-file src="src/ios/FirstViewController.xib"/>
-		<framework src="src/ios/JabberGuest.framework" custom="true"/>
+		<framework src="src/ios/JabberGuest.framework" custom="true" embed="true"/>
+		<source-file src="src/ios/XXX.framework" target-dir="lib" framework="true" />
 		<resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
     <source-file src="src/ios/MyGJController.h" />
         <source-file src="src/ios/MyGJController.m" />
