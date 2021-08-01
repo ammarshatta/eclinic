@@ -63,20 +63,20 @@
             <string>This app needs access to the icrophone to make Video calls.</string>
     </config-file>
 
-		<!-- <framework src="src/ios/JabberGuest.framework" custom="true" embed="true"/> -->
+		<framework src="src/ios/JabberGuest.framework" custom="true" />
 		<!-- <source-file src="src/ios/JabberGuest.framework" target-dir="lib" framework="true" /> -->
 		
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true" custom="true" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestHelper.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallViewController.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallSelfView.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallKeypadView.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallBarView.h" />
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCall.h" />
-		<resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true" custom="true" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestHelper.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallViewController.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallSelfView.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallKeypadView.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallBarView.h" /> -->
+		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCall.h" /> -->
+		<!-- <resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" /> -->
         <source-file src="src/ios/EclinicPlugin.m" />
         <source-file src="src/ios/FirstViewController.h" />
         <source-file src="src/ios/FirstViewController.m" />
