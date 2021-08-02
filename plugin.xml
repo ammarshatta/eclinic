@@ -69,6 +69,7 @@
 
 
 		<source-file src="src/ios/JabberGuest.framework" target-dir="lib" framework="true" /> 
+		<source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest" target-dir="lib" framework="true" /> 
 		<framework src="src/ios/JabberGuest.framework/JabberGuest" custom="true"  />
 		
 		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h"  />
