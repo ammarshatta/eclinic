@@ -69,7 +69,7 @@
 
 
 		<source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true" /> 
-		<framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" embed="true" /> 
+		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" embed="true" />  -->
 		<!-- <framework src="src/ios/JabberGuest.framework/JabberGuest" custom="true"  /> -->
 		
 		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h"  />
