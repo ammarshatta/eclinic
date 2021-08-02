@@ -66,8 +66,8 @@
 		<framework src="src/ios/JabberGuest.framework" custom="true" />
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" /> -->
 
-		<source-file src="src/ios/JabberGuest.framework" target-dir="src/ios/" framework="true" /> 
-		<framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" />
+		<!-- <source-file src="src/ios/JabberGuest.framework" target-dir="src/ios/" framework="true" />  -->
+		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" /> -->
 		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true" custom="true" /> -->
 		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" /> -->
 		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" /> -->
