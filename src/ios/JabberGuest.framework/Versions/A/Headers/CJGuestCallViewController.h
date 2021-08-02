@@ -6,8 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JabberGuest/JabberGuest.h>
+//#import <JabberGuest/JabberGuest.h>
+
 #import <MessageUI/MessageUI.h>
+#import "JabberGuest.h"
 
 @protocol CJGuestCallViewControllerDelegate;
 
