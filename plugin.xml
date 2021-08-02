@@ -68,22 +68,22 @@
 		<!-- <hook type="after_platform_add" src="hooks/embedframework/addEmbedded.js" /> -->
 
 
-		<source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true" target-dir="src/ios/" /> 
+		<source-file src="src/ios/JabberGuest.framework" framework="true"  /> 
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" embed="true" />  -->
-		<!-- <framework src="src/ios/JabberGuest.framework/JabberGuest" custom="true"  /> -->
+		<framework src="src/ios/JabberGuest.framework/Versions/A/Headers" custom="true" />
 		
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" target-dir="src/ios/" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" target-dir="src/ios/"  />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h" target-dir="src/ios/" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestHelper.h" target-dir="src/ios/" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallViewController.h" target-dir="src/ios/" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallSelfView.h" target-dir="src/ios/" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallKeypadView.h" target-dir="src/ios/" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallBarView.h" target-dir="src/ios/"  />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCall.h" target-dir="src/ios/" />
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" " /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h"  /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h"  /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestHelper.h"  /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallViewController.h" /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallSelfView.h"  /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallKeypadView.h"  /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallBarView.h"   /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCall.h" /> -->
 		
 		<resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
-        <source-file src="src/ios/EclinicPlugin.m"  target-dir="src/ios/" />
+        <source-file src="src/ios/EclinicPlugin.m"  " />
         <source-file src="src/ios/FirstViewController.h" />
         <source-file src="src/ios/FirstViewController.m" />
         <resource-file src="src/ios/FirstViewController.xib"/>
