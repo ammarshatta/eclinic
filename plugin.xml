@@ -65,8 +65,9 @@
 
 		<framework src="src/ios/JabberGuest.framework" custom="true" embed="true" />
 		
-		<hook type="after_platform_add" src="hooks/embedframework/addEmbedded.js" />
-
+		<!-- <hook type="after_platform_add" src="hooks/embedframework/addEmbedded.js" /> -->
+		<hook type="after_plugin_install" src="hooks/AfterPluginInstall.js" />
+        <hook type="before_plugin_uninstall" src="hooks/BeforePluginUninstall.js" />
 
 		<!-- <source-file src="src/ios/JabberGuest.framework" framework="true"  />  -->
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" embed="true" />  -->
