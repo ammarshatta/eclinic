@@ -135,5 +135,5 @@ module.exports = function(context) {
     }
 
     fs.writeFileSync(projectPath, myProj.writeSync());
-    console.log('Embedded Frameworks In ' + context.opts.plugin.id);
+    console.log('ammar Embedded Frameworks In ' + context.opts.plugin.id);
 };
