@@ -4,8 +4,8 @@
 #import "FirstViewController.h"
 #import "MyGJController.h"
 #import <UIKit/UIKit.h>
-//#import <JabberGuest/JabberGuest.h>
-#import "JabberGuest.h"
+#import <JabberGuest/JabberGuest.h>
+// #import "JabberGuest.h"
 #import <AVFoundation/AVFoundation.h>
 static BOOL hasError;
 @interface EclinicPlugin : CDVPlugin <CJGuestCallViewControllerDelegate,UINavigationControllerDelegate> {

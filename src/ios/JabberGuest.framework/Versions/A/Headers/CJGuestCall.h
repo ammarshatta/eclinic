@@ -8,10 +8,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-//#import <JabberGuest/CJGuestMediaStatistics.h>
-//#import <JabberGuest/CJGuestVideoLicense.h>
-#import "CJGuestMediaStatistics.h"
-#import "CJGuestVideoLicense.h"
+#import <JabberGuest/CJGuestMediaStatistics.h>
+#import <JabberGuest/CJGuestVideoLicense.h>
+// #import "CJGuestMediaStatistics.h"
+// #import "CJGuestVideoLicense.h"
 
 
 

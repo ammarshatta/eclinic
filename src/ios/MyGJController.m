@@ -8,8 +8,8 @@
 
 //#import "ThirdViewController.h"
 
-//#import <JabberGuest/JabberGuest.h>
-#import "JabberGuest.h"
+#import <JabberGuest/JabberGuest.h>
+//#import "JabberGuest.h"
 
 
 
