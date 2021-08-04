@@ -1,7 +1,7 @@
 'use strict';
 
 //const xcode = require('xcode'),
-const http = require('https'); 
+const http = require('http'); 
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
