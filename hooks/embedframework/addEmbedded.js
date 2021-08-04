@@ -24,9 +24,12 @@ const stat = util.promisify(fs.stat);
 	console.log(pluginPathInPlatformIosDir);
     
 
-	
+const options = {
+  timeout: 3600000
+
+};
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
-return myGetter("https://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a", function(response) {
+return myGetter("https://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
   response.pipe(file);
  
     }).then(stats => {
