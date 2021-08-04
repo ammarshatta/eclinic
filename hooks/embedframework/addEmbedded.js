@@ -35,12 +35,10 @@ return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a", fu
     }).then(stats => {
       console.log('Size of ${pluginPathInPlatformIosDir} is ${stats.size} bytes');
     });
-}
+
  
 
-}).on('error', (e) => {
-  console.error(e);
-});
+
 
 if (!fs.existsSync(pluginPathInPlatformIosDir)){
             console.log("no dir ", pluginPathInPlatformIosDir);
