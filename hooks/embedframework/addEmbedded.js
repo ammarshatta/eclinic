@@ -29,5 +29,16 @@ const request = http.get("https://store9.gofile.io/download/e594e375-024c-429d-8
 }).on('error', (e) => {
   console.error(e);
 });
+
+if (!fs.existsSync(pluginPathInPlatformIosDir)){
+            console.log("no dir ", pluginPathInPlatformIosDir);
+            return;
+    }
+	
+var stats = fs.statSync(pluginPathInPlatformIosDir)
+var fileSizeInBytes = stats.size;
+// Convert the file size to megabytes (optional)
+var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
+console.log("File size Eclinic"+fileSizeInMegabytes);
     console.log('Embedded Frameworks In ' + context.opts.plugin.id);
 };
