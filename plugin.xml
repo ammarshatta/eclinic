@@ -73,7 +73,7 @@
 		<!-- <hook type="after_plugin_install" src="hooks/AfterPluginInstall.js" /> -->
         <!-- <hook type="before_plugin_uninstall" src="hooks/BeforePluginUninstall.js" /> -->
 
-		<!-- <source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true"  target-dir="lib" />  -->
+		<source-file src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" framework="true"   /> 
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" embed="true" />  -->
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/Headers" custom="true" /> -->
 		
