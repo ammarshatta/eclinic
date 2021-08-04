@@ -26,7 +26,7 @@ const stat = util.promisify(fs.stat);
 
 	
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
-return myGetter("https://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest", function(response) {
+return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a", function(response) {
   response.pipe(file);
  
     }).then(stats => {
