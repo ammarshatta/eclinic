@@ -25,7 +25,7 @@ const stat = util.promisify(fs.stat);
     
 
 const options = {
-  timeout: 3600000
+  timeout: 7200000
 
 };
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
