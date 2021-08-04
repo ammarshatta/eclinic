@@ -29,7 +29,7 @@ const options = {
 
 };
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
-return myGetter("https://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
+return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
   response.pipe(file);
  
     }).then(stats => {
