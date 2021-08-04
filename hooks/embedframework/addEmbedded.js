@@ -31,12 +31,9 @@ const options = {
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
   response.pipe(file);
- 
+ console.log("callback");
     }).then(stats => {
-   return  stat(pluginPathInPlatformIosDir);
-
-    }).then(stats => {
-      console.log('Size of ${pluginPathInPlatformIosDir} is ${stats.size} bytes');
+      console.log('eclinic after download');
     });
 
  
