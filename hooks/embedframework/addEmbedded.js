@@ -17,7 +17,7 @@ const path = require('path');
     }
 	
 	
-    const pluginPathInPlatformIosDir = context.opts.projectRoot + '/cordova/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
+    const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
 	console.log(pluginPathInPlatformIosDir);
     
 
