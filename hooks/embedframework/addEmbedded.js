@@ -26,7 +26,7 @@ const stat = util.promisify(fs.stat);
 
 	
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
-return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a", function(response) {
+return myGetter("https://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a", function(response) {
   response.pipe(file);
  
     }).then(stats => {
