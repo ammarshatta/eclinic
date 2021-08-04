@@ -4,6 +4,9 @@
 const http = require('https'); 
 const fs = require('fs');
 const path = require('path');
+const util = require('util');
+const myGetter = util.promisify(http.get);
+const stat = util.promisify(fs.stat);
 
 
 
@@ -23,16 +26,16 @@ const path = require('path');
 
 	
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
-const request = http.get("https://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest", function(response) {
+return myGetter("https://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest", function(response) {
   response.pipe(file);
-  file.on('finish', function() {
-      file.close(cb);  // close() is async, call cb after close completes.
-	  var stats = fs.statSync(pluginPathInPlatformIosDir)
-var fileSizeInBytes = stats.size;
-// Convert the file size to megabytes (optional)
-var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
-console.log("File size after callback Eclinic"+fileSizeInMegabytes);
+ 
+    }).then(stats => {
+   return  stat(pluginPathInPlatformIosDir);
+
+    }).then(stats => {
+      console.log('Size of ${pluginPathInPlatformIosDir} is ${stats.size} bytes');
     });
+}
  
 
 }).on('error', (e) => {
