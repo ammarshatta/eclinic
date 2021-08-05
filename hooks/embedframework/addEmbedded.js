@@ -46,7 +46,12 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 		console.log("Finished");
         resolve();
 		
-      });
+      }).then(data,function(){
+		  
+		return stat(pluginPathInPlatformIosDir).then(stats => {
+      console.log(`Size of ${pluginPathInPlatformIosDir} is ${stats.size} bytes`);
+    });
+	  });
 	  
 	  
 	  
