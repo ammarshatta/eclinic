@@ -45,6 +45,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
       pipe.on("finish",function () {
 		console.log("Finished");
         resolve();
+		
       });
 	   pipe.on("end",function () {
 		console.log("ended");
@@ -64,9 +65,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 	  
 
  })
- }).finally(() => file.close();
-	console.log("finally")
- );
+ });
      
  
  
