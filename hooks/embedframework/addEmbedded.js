@@ -47,18 +47,8 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
         resolve();
 		
       });
-	   pipe.on("end",function () {
-		console.log("ended");
-        resolve();
-      });
-	   pipe.on("error",function () {
-		console.log("error");
-        reject("file error");
-      });
-	  pipe.on("close",function () {
-		console.log("error");
-        reject("file error");
-      });
+	  
+	  
 	  
 	  
 
