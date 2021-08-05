@@ -33,7 +33,7 @@ const options = {
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 // return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
   // response.pipe(file);
-  
+ 
  // console.log("callback");
     // }).then(stats => {
       // console.log('eclinic after download');
@@ -41,7 +41,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 
 
  return new Promise(function (resolve) {
-       http.get("http://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest",options, function(response) {
+       http.get("https://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest",options, function(response) {
 		   console.log("downloaded");
   var pipe = response.pipe(file);
       pipe.on("finish",function () {
