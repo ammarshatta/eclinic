@@ -58,12 +58,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 	  
 
  })
- }).then(function(Data){
-		  
-		return stat(pluginPathInPlatformIosDir).then(stats => {
-      console.log('Size  is'+ stats.size +' bytes');
-    });
-	  });
+ })
      
  
  
