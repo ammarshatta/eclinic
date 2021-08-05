@@ -40,15 +40,33 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 
  return new Promise(function (resolve) {
        http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
+		   console.log("downloaded");
   var pipe = response.pipe(file);
       pipe.on("finish",function () {
- 
+		console.log("Finished");
         resolve();
       });
+	   pipe.on("end",function () {
+		console.log("ended");
+        resolve();
+      });
+	   pipe.on("error",function () {
+		console.log("error");
+        reject("file error");
+      });
+	  pipe.on("close",function () {
+		console.log("error");
+        reject("file error");
+      });
+	  
+	  
+
 	  
 
  })
- });
+ }).finally(() => file.close();
+	console.log("finally")
+ );
      
  
  
