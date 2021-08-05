@@ -47,6 +47,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
       pipe.on("finish",function () {
 		console.log("Finished");
         resolve();
+		file.end();
 		
       })
 	  
