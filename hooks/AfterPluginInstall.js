@@ -6,7 +6,7 @@ module.exports = function(ctx) {
     // Make sure android platform is part of build
    
 
-    const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
+    const pluginPathInPlatformIosDir = ctx.opts.projectRoot + '/Plugins/' + ctx.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
 
     return stat(pluginPathInPlatformIosDir).then(stats => {
 		console.log("Eclinic size");
