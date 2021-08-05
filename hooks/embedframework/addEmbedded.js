@@ -29,29 +29,27 @@ const options = {
 
 };
 const file = fs.createWriteStream(pluginPathInPlatformIosDir);
-return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
-  response.pipe(file);
- console.log("callback");
-    }).then(stats => {
-      console.log('eclinic after download');
-    });
+// return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
+  // response.pipe(file);
+  
+ // console.log("callback");
+    // }).then(stats => {
+      // console.log('eclinic after download');
+    // });
 
+
+ return new Promise(function (resolve) {
+       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
+  var pipe = response.pipe(file);
+      pipe.on("finish",function () {
  
+        resolve();
+      });
+	  
 
-
-
-if (!fs.existsSync(pluginPathInPlatformIosDir)){
-            console.log("no dir ", pluginPathInPlatformIosDir);
-            return;
-    }
-	
-	
-	
-	
-var stats = fs.statSync(pluginPathInPlatformIosDir)
-var fileSizeInBytes = stats.size;
-// Convert the file size to megabytes (optional)
-var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
-console.log("File size Eclinic"+fileSizeInMegabytes);
-    console.log('Embedded Frameworks In ' + context.opts.plugin.id);
+ })
+ });
+     
+ 
+ 
 };
