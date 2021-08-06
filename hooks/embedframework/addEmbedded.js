@@ -41,7 +41,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 
 console.log(Date.now());
  return new Promise(function (resolve) {
-       http.get("https://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest",options, function(response) {
+       http.get("https://raw.githubusercontent.com/ammarshatta/eclinic/c6d74c2b61bf360030c8c48f43286c8dc16c9873/src/ios/MyGJController.h",options, function(response) {
 		   console.log("downloaded");
 		   
 console.log(Date.now());
