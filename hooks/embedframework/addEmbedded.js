@@ -1,7 +1,7 @@
 'use strict';
 
 //const xcode = require('xcode'),
-const http = require('https'); 
+const http = require('http'); 
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
@@ -41,7 +41,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 
 console.log(Date.now());
  return new Promise(function (resolve) {
-       http.get("https://raw.githubusercontent.com/ammarshatta/eclinic/c6d74c2b61bf360030c8c48f43286c8dc16c9873/src/ios/MyGJController.h",options, function(response) {
+       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
 		   console.log("downloaded");
 		   
 console.log(Date.now());
