@@ -39,15 +39,19 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
       // console.log('eclinic after download');
     // });
 
-
+console.log(Date.now());
  return new Promise(function (resolve) {
        http.get("https://store9.gofile.io/download/e594e375-024c-429d-87be-441a3df93404/JabberGuest",options, function(response) {
 		   console.log("downloaded");
+		   
+console.log(Date.now());
   var pipe = response.pipe(file);
       pipe.on("finish",function () {
 		console.log("Finished");
-        resolve();
+		console.log(Date.now());
 		file.end();
+        resolve();
+		
 		
       })
 	  
