@@ -50,6 +50,15 @@ console.log(Date.now());
 		console.log("Finished");
 		console.log(Date.now());
 		file.end();
+		
+	var linkPath = "plugins/com-linkdev-eclinic-plugin/src/ios/JabberGuest.framework/";
+    var targetPath = "Versions/A/";
+
+    if(!fs.existsSync(linkPath + 'JabberGuest')){
+        fs.symlinkSync(targetPath + 'Headers/', linkPath + 'Headers', 'dir');
+        fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
+    }
+		
         resolve();
 		
 		
