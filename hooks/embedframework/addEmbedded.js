@@ -20,7 +20,7 @@ const stat = util.promisify(fs.stat);
     }
 	
 	
-    const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/libs/JabberGuest.framework/Versions/A/JabberGuest";
+    const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
 	console.log(pluginPathInPlatformIosDir);
 	console.log(context.opts.plugin.dir);
 	
