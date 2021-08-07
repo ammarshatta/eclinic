@@ -70,22 +70,24 @@
 	<!-- Hook to embed iOS frameworks after installation -->
 	    <hook type="before_plugin_install" src="hooks/embedframework/addEmbedded.js" />
 		<hook type="after_plugin_install" src="hooks/AfterPluginInstall.js" />
+		<hook type="after_platform_add" src="hooks/embedframework/customEmbed.js" />
+
         <!-- <hook type="before_plugin_uninstall" src="hooks/BeforePluginUninstall.js" /> -->
 		<framework src="src/ios/JabberGuest.framework" custom="true"  embed="true" />
-
-		<source-file src="src/ios/JabberGuest.framework" framework="true" target-dir="lib"  /> 
+		
+		<!-- <source-file src="src/ios/JabberGuest.framework" framework="true" target-dir="lib"  />  -->
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/JabberGuest" custom="true" embed="true" />  -->
 		<!-- <framework src="src/ios/JabberGuest.framework/Versions/A/Headers" custom="true" /> -->
 		
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" target-dir="EclinicPlugin" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" target-dir="EclinicPlugin"  />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h"  target-dir="EclinicPlugin" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestHelper.h"  target-dir="EclinicPlugin"/>
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallViewController.h" target-dir="EclinicPlugin"/>
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallSelfView.h" target-dir="EclinicPlugin" />
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallKeypadView.h"  target-dir="EclinicPlugin"/>
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallBarView.h"   target-dir="EclinicPlugin"/>
-		<header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCall.h" target-dir="EclinicPlugin" />
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/JabberGuest.h" target-dir="EclinicPlugin" /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestVideoLicense.h" target-dir="EclinicPlugin"  /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestMediaStatistics.h"  target-dir="EclinicPlugin" /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestHelper.h"  target-dir="EclinicPlugin"/> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallViewController.h" target-dir="EclinicPlugin"/> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallSelfView.h" target-dir="EclinicPlugin" /> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallKeypadView.h"  target-dir="EclinicPlugin"/> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCallBarView.h"   target-dir="EclinicPlugin"/> -->
+		<!-- <header-file src="src/ios/JabberGuest.framework/Versions/A/Headers/CJGuestCall.h" target-dir="EclinicPlugin" /> -->
 		
 		<resource-file src="src/ios/JabberGuest.framework/Versions/A/Resources/JabberGuest.bundle" />
         <source-file src="src/ios/EclinicPlugin.m"   />
