@@ -97,8 +97,8 @@
         <source-file src="src/ios/FirstViewController.m" />
         <resource-file src="src/ios/FirstViewController.xib"/>
 		
-    <source-file src="src/ios/MyGJController.h" target-dir="src/ios/" />
-        <source-file src="src/ios/MyGJController.m" target-dir="src/ios/" />
+		<header-file src="src/ios/MyGJController.h"  />
+        <source-file src="src/ios/MyGJController.m"  />
 <!--        <resource-file src="src/ios/SecondViewController.xib"/>-->
    
      <framework src="AVFoundation.framework" />
