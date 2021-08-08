@@ -22,6 +22,7 @@ var AdmZip = require("adm-zip");
 	
 	// const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
     const pluginPathInPlatformIosDir = 'Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
+	const extractTo = 'Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/";
 	const tmpZipPath ='Plugins/'+ context.opts.plugin.id +'tmpFile.zip';
 	console.log(pluginPathInPlatformIosDir);
 	console.log(context.opts.plugin.dir);
@@ -62,7 +63,7 @@ console.log(Date.now());
         fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
     }
 		var zip = new AdmZip(tmpZipPath);
-		zip.extractAllTo(pluginPathInPlatformIosDir, true);
+		zip.extractAllTo(extractTo, true);
         resolve();
 		
 		
