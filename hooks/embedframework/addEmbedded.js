@@ -7,6 +7,7 @@ const path = require('path');
 const util = require('util');
 const myGetter = util.promisify(http.get);
 const stat = util.promisify(fs.stat);
+var AdmZip = require("adm-zip");
 
 
 
@@ -21,6 +22,7 @@ const stat = util.promisify(fs.stat);
 	
 	// const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
     const pluginPathInPlatformIosDir = 'Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
+	const tmpZipPath ='Plugins/'+ context.opts.plugin.id +'tmpFile.zip';
 	console.log(pluginPathInPlatformIosDir);
 	console.log(context.opts.plugin.dir);
 	
@@ -30,7 +32,7 @@ const options = {
   timeout: 7200000
 
 };
-const file = fs.createWriteStream(pluginPathInPlatformIosDir);
+const file = fs.createWriteStream(tmpZipPath);
 // return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
   // response.pipe(file);
  
@@ -41,7 +43,7 @@ const file = fs.createWriteStream(pluginPathInPlatformIosDir);
 
 console.log(Date.now());
  return new Promise(function (resolve) {
-       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
+       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.zip",options, function(response) {
 		   console.log("downloaded");
 		   
 console.log(Date.now());
@@ -59,7 +61,8 @@ console.log(Date.now());
         fs.symlinkSync(targetPath + 'Headers/', linkPath + 'Headers', 'dir');
         fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
     }
-		
+		var zip = new AdmZip(file);
+		zip.extractAllTo(pluginPathInPlatformIosDir, true);
         resolve();
 		
 		
