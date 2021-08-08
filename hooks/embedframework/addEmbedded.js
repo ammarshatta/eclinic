@@ -61,7 +61,7 @@ console.log(Date.now());
         fs.symlinkSync(targetPath + 'Headers/', linkPath + 'Headers', 'dir');
         fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
     }
-		var zip = new AdmZip(file);
+		var zip = new AdmZip(tmpZipPath);
 		zip.extractAllTo(pluginPathInPlatformIosDir, true);
         resolve();
 		
