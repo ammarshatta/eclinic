@@ -14,5 +14,8 @@
     "cordova-android"
   ],
   "author": "ammar-hassan",
-  "license": "mit"
+  "license": "mit",
+  "dependencies": {
+        "adm-zip": "0.5.5"
+    }
 }
