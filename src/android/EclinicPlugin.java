@@ -142,7 +142,11 @@ public class EclinicPlugin extends CordovaPlugin {
           authReqCallbackCtx.error("Permission denied: " + permissions[i]);
           return;
         }
+		
+			PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, true);
+			authReqCallbackCtx.sendPluginResult(pluginResult);
       }
+	  
       // all dynamic permissions accepted!
       Log.i("ammar-onRequestPermissionResult", "All dynamic permissions accepted");
      
