@@ -143,11 +143,12 @@ public class EclinicPlugin extends CordovaPlugin {
           return;
         }
 		
-			PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, true);
-			authReqCallbackCtx.sendPluginResult(pluginResult);
+			
       }
 	  
       // all dynamic permissions accepted!
+	  PluginResult pluginResult = new PluginResult(PluginResult.Status.OK, true);
+	  authReqCallbackCtx.sendPluginResult(pluginResult);
       Log.i("ammar-onRequestPermissionResult", "All dynamic permissions accepted");
      
     }
