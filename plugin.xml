@@ -62,6 +62,13 @@
     <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
             <string>This app needs access to the icrophone to make Video calls.</string>
     </config-file>
+	<config-file platform="ios" target="*-Info.plist" parent="CFBundleLocalizations">
+                <array>
+                    <string>ar</string>
+                    <string>en</string>
+                    
+                </array>
+    </config-file>
 
 		
 		<!-- <hook type="after_platform_add" src="hooks/embedframework/addEmbedded.js" /> -->
