@@ -7,8 +7,40 @@
 #import <JabberGuest/JabberGuest.h>
 // #import "JabberGuest.h"
 #import <AVFoundation/AVFoundation.h>
+
 //--------------- Modify NSBunle behavior -------------
 #import <objc/runtime.h>
+
+@interface CustomizedBundle : NSBundle
+@end
+
+@implementation CustomizedBundle
+static const char kAssociatedLanguageBundle = 0;
+
+-(NSString*)localizedStringForKey:(NSString *)key
+                            value:(NSString *)value
+                            table:(NSString *)tableName {
+
+    NSBundle* bundle=objc_getAssociatedObject(self, &kAssociatedLanguageBundle);
+
+    return bundle ? [bundle localizedStringForKey:key value:value table:tableName] :
+    [super localizedStringForKey:key value:value table:tableName];
+}
+@end
+
+@implementation NSBundle (Custom)
++ (void)setLanguage:(NSString*)language {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        object_setClass([NSBundle mainBundle], [CustomizedBundle class]);
+    });
+
+    objc_setAssociatedObject([NSBundle mainBundle], &kAssociatedLanguageBundle, language ?
+                             [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:language ofType:@"lproj"]] : nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+@end
+
+//--------------- Demo ---------------------------------
 
 static BOOL hasError;
 @interface EclinicPlugin : CDVPlugin <CJGuestCallViewControllerDelegate,UINavigationControllerDelegate> {
