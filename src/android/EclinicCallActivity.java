@@ -94,6 +94,21 @@ public class EclinicCallActivity extends Activity {
 	Log.d("Ammar-DEFAULT_SERVER", DEFAULT_SERVER );
 	Log.d("Ammar-DEFAULT_ADDRESS", DEFAULT_ADDRESS );
         super.onCreate(savedInstanceState);
+		//add arabic always for test locale
+		
+		 val config = resources.configuration
+        val lang = "ar" // your language code
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            config.setLocale(locale)
+        else
+            config.locale = locale
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            createConfigurationContext(config)
+        resources.updateConfiguration(config, resources.displayMetrics)
+		//end of test
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));
         //setContentView(R.layout.activity_main);
