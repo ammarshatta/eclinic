@@ -96,18 +96,13 @@ public class EclinicCallActivity extends Activity {
         super.onCreate(savedInstanceState);
 		//add arabic always for test locale
 		
-		 val config = resources.configuration
-        val lang = "ar" // your language code
-        val locale = Locale(lang)
-        Locale.setDefault(locale)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            config.setLocale(locale)
-        else
-            config.locale = locale
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            createConfigurationContext(config)
-        resources.updateConfiguration(config, resources.displayMetrics)
+		String languageToLoad  = "ar"; // your language
+		Locale locale = new Locale(languageToLoad); 
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		getBaseContext().getResources().updateConfiguration(config, 
+		  getBaseContext().getResources().getDisplayMetrics());
 		//end of test
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));
