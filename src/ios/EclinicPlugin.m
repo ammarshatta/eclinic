@@ -7,6 +7,9 @@
 #import <JabberGuest/JabberGuest.h>
 // #import "JabberGuest.h"
 #import <AVFoundation/AVFoundation.h>
+//--------------- Modify NSBunle behavior -------------
+#import <objc/runtime.h>
+
 static BOOL hasError;
 @interface EclinicPlugin : CDVPlugin <CJGuestCallViewControllerDelegate,UINavigationControllerDelegate> {
     MyGJController * jabberG;
