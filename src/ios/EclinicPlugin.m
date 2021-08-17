@@ -26,6 +26,20 @@ static BOOL hasError;
 - (void)new_activity:(CDVInvokedUrlCommand*)command
 {
     
+   //try the locale
+   
+   NSString *targetLang =  @"ar" ;
+
+    [NSBundle setLanguage:targetLang];
+
+    [[NSUserDefaults standardUserDefaults] setObject:targetLang forKey:@"selectedLanguage"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    [NSBundle setLanguage:targetLang];
+
+   
+   //end 
+   
    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleError:) name:CJGuestCallErrorNotification object:nil];
     hasError= false;
