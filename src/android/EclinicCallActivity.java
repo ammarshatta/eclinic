@@ -98,13 +98,13 @@ public class EclinicCallActivity extends Activity {
         super.onCreate(savedInstanceState);
 		//add arabic always for test locale
 		
-		String languageToLoad  = "ar"; // your language
-		Locale locale = new Locale(languageToLoad); 
-		Locale.setDefault(locale);
-		Configuration config = new Configuration();
-		config.locale = locale;
-		getBaseContext().getResources().updateConfiguration(config, 
-		  getBaseContext().getResources().getDisplayMetrics());
+		// String languageToLoad  = "ar"; // your language
+		// Locale locale = new Locale(languageToLoad); 
+		// Locale.setDefault(locale);
+		// Configuration config = new Configuration();
+		// config.locale = locale;
+		// getBaseContext().getResources().updateConfiguration(config, 
+		  // getBaseContext().getResources().getDisplayMetrics());
 		//end of test
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));
