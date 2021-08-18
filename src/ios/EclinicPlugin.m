@@ -34,7 +34,7 @@ static BOOL hasError;
 {
     
    
-  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", @"en", nil] forKey:@"AppleLanguages"];
+  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", @"ar", nil] forKey:@"AppleLanguages"];
   [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
    
    
