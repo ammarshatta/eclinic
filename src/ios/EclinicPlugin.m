@@ -195,6 +195,9 @@ static BOOL hasError;
     NSString* _address =_args[@"address"];
 	NSString* _lang =_args[@"language"];
 	NSString * _langlower = [_lang lowercaseString];
+	NSString *strIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+	[[NSUserDefaults standardUserDefaults] strIdentifier];
+
 	if ([_langlower containsString:@"en"]) {
 	  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
 	  NSLog(@"en selected");
