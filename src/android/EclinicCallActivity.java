@@ -96,16 +96,25 @@ public class EclinicCallActivity extends Activity {
 	Log.d("Ammar-DEFAULT_SERVER", DEFAULT_SERVER );
 	Log.d("Ammar-DEFAULT_ADDRESS", DEFAULT_ADDRESS );
         super.onCreate(savedInstanceState);
-		//add arabic always for test locale
 		
-		// String languageToLoad  = "ar"; // your language
-		// Locale locale = new Locale(languageToLoad); 
-		// Locale.setDefault(locale);
-		// Configuration config = new Configuration();
-		// config.locale = locale;
-		// getBaseContext().getResources().updateConfiguration(config, 
-		  // getBaseContext().getResources().getDisplayMetrics());
-		//end of test
+		  //force locale lang
+	  String localeLang = params.optString("language");
+	  String languageToLoad  = "ar";
+	  if(localeLang.toLowerCase().contains("en")){
+		  
+		  //add arabic always for test locale
+		
+		 languageToLoad  = "en"; // your language
+		
+	  }
+	    Locale locale = new Locale(languageToLoad); 
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		getBaseContext().getResources().updateConfiguration(config, 
+		  getBaseContext().getResources().getDisplayMetrics());
+	  //end locale
+		
 		String package_name = getApplication().getPackageName();
         setContentView(getApplication().getResources().getIdentifier("activity_ecliniccall", "layout", package_name));
         //setContentView(R.layout.activity_main);

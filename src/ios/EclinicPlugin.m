@@ -33,10 +33,7 @@ static BOOL hasError;
 - (void)new_activity:(CDVInvokedUrlCommand*)command
 {
     
-   
-  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", @"ar", nil] forKey:@"AppleLanguages"];
-  [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
-   
+  
    
    
    
@@ -196,6 +193,18 @@ static BOOL hasError;
    // NSString* _server =  [command argumentAtIndex:0 withDefault:nil];
    
     NSString* _address =_args[@"address"];
+	NSString* _lang =_args[@"language"];
+	NSString * _langlower = [_lang lowercaseString];
+	if ([_langlower containsString:@"en"]) {
+	  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", @"ar", nil] forKey:@"AppleLanguages"];
+	  NSLog(@"en selected");
+	} else {
+	  NSLog(@"ar selected");
+	    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", @"en", nil] forKey:@"AppleLanguages"];
+	}
+
+  [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
+   
      
     dispatch_async(dispatch_get_main_queue(), ^{
         //code

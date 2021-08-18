@@ -17,10 +17,11 @@ function EclinicPlugin() {}
 
 // The function that passes work along to native shells
 // Message is a string, duration may be 'long' or 'short'
-EclinicPlugin.prototype.new_activity = function(server, address, successCallback, errorCallback) {
+EclinicPlugin.prototype.new_activity = function(server, address,language, successCallback, errorCallback) {
   var options = {};
   options.server = server;
   options.address = address;
+  options.language =language;
   cordova.exec(successCallback, errorCallback, 'EclinicPlugin', 'new_activity', [options]);
 }
 
