@@ -194,23 +194,26 @@ static BOOL hasError;
 	NSString* _lang =_args[@"language"];
 	NSString * _langlower = [_lang lowercaseString];
 	
+	NSString* path= [[NSBundle mainBundle] pathForResource:@"ar" ofType:@"lproj"]; 
 
-	if ([_langlower containsString:@"en"]) {
-	  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
-	  NSLog(@"en selected");
-	} else {
-	  NSLog(@"ar selected");
-	    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
-	}
+	NSBundle* languageBundle = [NSBundle bundleWithPath:path];
+	
+	// if ([_langlower containsString:@"en"]) {
+	  // [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
+	  // NSLog(@"en selected");
+	// } else {
+	  // NSLog(@"ar selected");
+	    // [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
+	// }
 
-  [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
+  // [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
    
      
     dispatch_async(dispatch_get_main_queue(), ^{
         //code
       //  CJGuestCallViewController *
        // jabberG = [[CJGuestCallViewController alloc] init];
-        jabberG = [[MyGJController alloc] init];
+        jabberG = [[MyGJController alloc] init bundle:languageBundle];
         if (jabberG) {
 
            // [jabberG setServerName:@"telemedicine.cchmc.org"];
