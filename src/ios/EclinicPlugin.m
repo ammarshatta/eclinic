@@ -229,14 +229,16 @@ static BOOL hasError;
 	// NSBundle* languageBundle = [NSBundle bundleWithPath:path];
 	
 	if ([_langlower containsString:@"en"]) {
-	  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
+	  //[[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
+	  [NSBundle setLanguage:@"en"];
 	  NSLog(@"en selected");
 	} else {
+		 [NSBundle setLanguage:@"ar"];
 	  NSLog(@"ar selected");
-	    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
+	   // [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
 	}
 
-  [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
+ // [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
    
      
     dispatch_async(dispatch_get_main_queue(), ^{
