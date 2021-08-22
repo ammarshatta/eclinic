@@ -240,6 +240,17 @@ static BOOL hasError;
 
    [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
    
+   // refresh
+   NSArray *windows = [UIApplication sharedApplication].windows;
+	for (UIWindow *window in windows) {
+		for (UIView *view in window.subviews) {
+        [view removeFromSuperview];
+        [window addSubview:view];
+    }
+}
+   
+   //end
+   
      
     dispatch_async(dispatch_get_main_queue(), ^{
         //code
