@@ -15,10 +15,15 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
 			
             <activity android:label="New Activity" android:name="com.linkdev.eclinic.plugin.NewActivity"></activity>
-			  <activity android:label="Call Activity" android:name="com.linkdev.eclinic.plugin.EclinicCallActivity"></activity>
+			  <activity android:label="@string/call_tittle" android:name="com.linkdev.eclinic.plugin.EclinicCallActivity"></activity>
 			
         </config-file>
-		
+		<config-file target="res/values/strings.xml" parent="/*">
+		<string name="call_tittle">Calling</string>
+		</config-file>
+		<config-file target="res/values-ar/strings.xml" parent="/*">
+		<string name="call_tittle">جاري الإتصال</string>
+		</config-file>
         <config-file parent="/*" target="AndroidManifest.xml">
 		
 		 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
