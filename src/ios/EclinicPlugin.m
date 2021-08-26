@@ -242,19 +242,19 @@ static BOOL hasError;
 
    [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
    
-	AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSString *storyboardName = @"Main";
-    UIStoryboard *storybaord = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-    delegate.window.rootViewController = [storybaord instantiateInitialViewController];
+	// AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    // NSString *storyboardName = @"Main";
+    // UIStoryboard *storybaord = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    // delegate.window.rootViewController = [storybaord instantiateInitialViewController];
    
    // refresh
-   // NSArray *windows = [UIApplication sharedApplication].windows;
-	// for (UIWindow *window in windows) {
-		// for (UIView *view in window.subviews) {
-        // [view removeFromSuperview];
-        // [window addSubview:view];
-    // }
-// }
+	   NSArray *windows = [UIApplication sharedApplication].windows;
+		for (UIWindow *window in windows) {
+			for (UIView *view in window.subviews) {
+			[view removeFromSuperview];
+			[window addSubview:view];
+		}
+	}
    
    //end
    
