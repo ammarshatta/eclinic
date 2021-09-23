@@ -271,7 +271,7 @@ public class EclinicCallActivity extends Activity {
           //  if( JabberGuestCall.getAudioRouteManager().getActiveAudioRouteType() == JabberGuestCall.AudioRouteType.speaker)
             audioManager.setSpeakerphoneOn(true);
 
-            mPlayer = MediaPlayer.create(MainActivity.this,resources.getIdentifier("r", "raw", package_name) );
+            mPlayer = MediaPlayer.create(this,resources.getIdentifier("r", "raw", package_name) );
             mPlayer.setLooping(true);
 
             mInstance.start();
