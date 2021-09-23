@@ -34,6 +34,9 @@ import org.json.JSONException;
 import com.cisco.jabber.guest.sdk.CallFragment;
 import com.cisco.jabber.guest.sdk.JabberGuestCall;
 import com.cisco.jabber.guest.sdk.JabberGuestCall.JabberGuestInvalidCertificateCallback;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+
 
 public class EclinicCallActivity extends Activity {
 
@@ -50,6 +53,8 @@ public class EclinicCallActivity extends Activity {
 	public static final String EXTRA_PARAMS = "params";
     private Uri mCallUri;
     private JabberGuestCall mInstance;
+	AudioManager audioManager;
+    MediaPlayer mPlayer;
 
     // Class to handle invalid certificate notifications
     private class JabberGuestCertificateHandler implements JabberGuestInvalidCertificateCallback {
@@ -78,6 +83,12 @@ public class EclinicCallActivity extends Activity {
             if (JabberGuestCall.ACTION_CALL_STATE_CHANGED.equals(action)) {
                 processCallStateChanged(intent);
             }
+			if(JabberGuestCall.ACTION_CALL_CONTROL_EVENT.equals(action) )
+			{
+				CallControlChanged(intent);
+			}
+            
+		
         }
     };
 
@@ -202,14 +213,36 @@ public class EclinicCallActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Ending call......", Toast.LENGTH_LONG).show();
         } else if (state == JabberGuestCall.State.GuestCallStateConnecting) {
             Toast.makeText(getApplicationContext(), "Connecting......", Toast.LENGTH_LONG).show();
+		    if(mPlayer!=null)
+                mPlayer.start();
+			
+        }else if (state == JabberGuestCall.State.GuestCallStateConnected) {
+            Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_LONG).show();
+            if(mPlayer!=null && mPlayer.isPlaying())
+                mPlayer.stop();
+
         } else if (state == JabberGuestCall.State.GuestCallStateDisconnected) {
             //Intent newIntent = getIntent();
             //newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
            // startActivity(newIntent);
+		   if(mPlayer!=null && mPlayer.isPlaying())
+                mPlayer.stop();
+		   
 			super.onBackPressed();
             finish();
         }
         
+    }
+
+
+    protected void CallControlChanged(Intent intent) {
+        JabberGuestCall.CallControlEvent event = (JabberGuestCall.CallControlEvent) intent.getSerializableExtra(JabberGuestCall.ARG_CALL_CONTROL_EVENT_VALUE);
+        if (event == JabberGuestCall.CallControlEvent.audioRouteUpdated){
+          if(  JabberGuestCall.getAudioRouteManager().getActiveAudioRouteType() == JabberGuestCall.AudioRouteType.earphone)
+              audioManager.setSpeakerphoneOn(false);
+          else
+              audioManager.setSpeakerphoneOn(true);
+        }
     }
 
     /**
@@ -231,6 +264,16 @@ public class EclinicCallActivity extends Activity {
         findViewById(ic).setVisibility(View.VISIBLE);
 
         if (mInstance != null) {
+			
+			audioManager = (AudioManager)
+                    this.getSystemService(Context.AUDIO_SERVICE);
+            audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+          //  if( JabberGuestCall.getAudioRouteManager().getActiveAudioRouteType() == JabberGuestCall.AudioRouteType.speaker)
+            audioManager.setSpeakerphoneOn(true);
+
+            mPlayer = MediaPlayer.create(MainActivity.this,resources.getIdentifier("r", "raw", package_name) );
+            mPlayer.setLooping(true);
+
             mInstance.start();
         }
     }

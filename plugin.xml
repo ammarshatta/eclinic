@@ -49,6 +49,7 @@
 		<source-file src="src/android/EclinicCallActivity.java" target-dir="src/com/linkdev/eclinic/plugin" />
         <source-file src="src/android/activity_new.xml" target-dir="res/layout"/>
 		<source-file src="src/android/activity_ecliniccall.xml" target-dir="res/layout"/>
+		<source-file src="src/android/r.mp3" target-dir="res/raw"/>
 		<source-file src="libs/jcf-release.aar" target-dir="libs" />
 		<source-file src="libs/sdk.aar" target-dir="libs" />
     </platform>
