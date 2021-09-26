@@ -278,11 +278,28 @@ static BOOL hasError;
             //                                                                           style:UIBarButtonItemStyleBordered
             //                                                                          target:nil
             //                                                                          action:nil];
-            jabberG.modalPresentationStyle = UIModalPresentationFullScreen;
+            //jabberG.modalPresentationStyle = UIModalPresentationFullScreen;
          
             
             
-            [self.viewController presentViewController:jabberG animated:YES completion:nil];
+           // [self.viewController presentViewController:jabberG animated:YES completion:nil];
+		    UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"X"
+                                                                               style:UIBarButtonItemStylePlain
+                                                                              target:self
+                                                                           action:@selector(closeCall)];
+            
+            
+            
+            [jabberG.navigationItem setHidesBackButton:false];
+            [jabberG.navigationItem setLeftBarButtonItem:backButton];
+           // [jabberG.navigationItem setBackBarButtonItem:backButton];
+            
+            UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:jabberG];
+            nav.modalPresentationStyle =  UIModalPresentationFullScreen;
+//            [nav.navigationItem setBackBarButtonItem:backButton];
+            [nav.navigationController pushViewController:jabberG animated:YES];
+            [self.viewController presentViewController:nav animated:YES completion:nil];
+            
 
           //[self.viewController presentViewController:jabberG animated:YES completion:nil];
             
@@ -310,6 +327,61 @@ static BOOL hasError;
    // [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)moreButtonPressedForCallController:(CJGuestCallViewController *)callController
+{
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+//                                                       message:@"...Do you want to Exit the call?"
+//                                                      delegate:self
+//                                             cancelButtonTitle:@"No"
+//                                             otherButtonTitles:@"Yes", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                           message:@"Thanks for using our Application"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Ok"
+                                                 otherButtonTitles: nil];
+        
+       [alert show];
+   
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch(buttonIndex) {
+        case 0: //"No" pressed
+            //do something?
+            break;
+        case 1: //"Yes" pressed
+            //here you pop the viewController
+        {
+           // [self closeCall];
+            break;
+        }
+           
+            
+    }
+}
+-(void)closeCall{
+    
+    __weak CJGuestCallViewController* jabberGCall = jabberG;
+    __weak EclinicPlugin* weakSelf = self;
+
+    dispatch_block_t invoke = ^ (void) {
+        CDVPluginResult* result;
+        
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Call finished"];
+        
+
+
+       // [weakSelf.commandDelegate sendPluginResult:result callbackId:jabberGCall.callbackId];
+        [weakSelf.commandDelegate sendPluginResult:result callbackId:self->callbackId];
+
+        
+    };
+
+    [[jabberGCall presentingViewController] dismissViewControllerAnimated:YES completion:invoke];
+  
+    NSLog(@"closed by user");
+}
+
 
 - (void)callFinishedForCallController:(CJGuestCallViewController *)callController
 {
