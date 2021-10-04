@@ -45,7 +45,7 @@ static const char _bundle=0;
 //--------------- Demo ---------------------------------
 
 static BOOL hasError;
-@interface EclinicPlugin : CDVPlugin <CJGuestCallViewControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate> {
+@interface EclinicPlugin : CDVPlugin <CJGuestCallViewControllerDelegate,UINavigationControllerDelegate> {
     MyGJController * jabberG;
     NSString* callbackId;
 
@@ -404,7 +404,7 @@ static BOOL hasError;
         };
 
         [[jabberGCall presentingViewController] dismissViewControllerAnimated:YES completion:invoke];
-		[jabberGCall terminate];
+       
     }
     
 }
