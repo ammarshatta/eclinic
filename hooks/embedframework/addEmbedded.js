@@ -9,7 +9,12 @@ const myGetter = util.promisify(http.get);
 const stat = util.promisify(fs.stat);
 var AdmZip = require("adm-zip");
 
-
+function isCordovaAbove(context, version) {
+  var cordovaVersion = context.opts.cordova.version;
+  console.log(cordovaVersion);
+  var sp = cordovaVersion.split('.');
+  return parseInt(sp[0]) >= version;
+}
 
 
  module.exports = function(context) {
@@ -19,6 +24,18 @@ var AdmZip = require("adm-zip");
             return; // plugin only meant to work for ios platform.
         }
     }
+	var cordovaAbove8 = isCordovaAbove(context, 8);
+	var child_process;
+	var deferral;
+	
+	if (cordovaAbove8) {
+		child_process = require('child_process');
+		deferral = require('q').defer();
+	  } else {
+		child_process = context.requireCordovaModule('child_process');
+		deferral = context.requireCordovaModule('q').defer();
+	  }
+	
 	
 	// const pluginPathInPlatformIosDir = context.opts.projectRoot + '/Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
     const pluginPathInPlatformIosDir = 'Plugins/' + context.opts.plugin.id +"/src/ios/JabberGuest.framework/Versions/A/JabberGuest";
@@ -34,16 +51,10 @@ const options = {
 
 };
 const file = fs.createWriteStream(tmpZipPath);
-// return myGetter("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.a",options, function(response) {
-  // response.pipe(file);
- 
- // console.log("callback");
-    // }).then(stats => {
-      // console.log('eclinic after download');
-    // });
+
 
 console.log(Date.now());
- return new Promise(function (resolve) {
+ //return new Promise(function (resolve) {
        http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.zip",options, function(response) {
 		   console.log("downloaded");
 		   
@@ -63,9 +74,15 @@ console.log(Date.now());
         fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
     }
 		var zip = new AdmZip(tmpZipPath);
-		zip.extractAllTo(extractTo, true);
-        resolve();
-		
+		zip.extractAllTo(extractTo, true,(err) = {
+			if(err){
+				 deferral.reject('unzip error');
+			}else{
+				deferral.resolve();
+			}
+});
+       // resolve();
+		 
 		
       })
 	  
@@ -76,8 +93,8 @@ console.log(Date.now());
 	  
 
  })
- })
+// })
      
  
- 
+ return deferral.promise;
 };
