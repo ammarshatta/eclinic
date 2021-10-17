@@ -75,11 +75,13 @@ console.log(Date.now());
     }
 		var zip = new AdmZip(tmpZipPath);
 		zip.extractAllTo(extractTo, true,(err) = {
-			if(err){
-				 deferral.reject('unzip error');
-			}else{
-				deferral.resolve();
-			}
+	if (err) {
+      console.log('exec error: ' + err);
+      deferral.reject('unzip error');
+    }
+    else {
+      deferral.resolve();
+    }
 });
        // resolve();
 		 
