@@ -62,7 +62,7 @@ const file = fs.createWriteStream(tmpZipPath);
 
 console.log(Date.now());
  //return new Promise(function (resolve) {
-       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.zip",options, function(response) {
+   var request =    http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.zip",options, function(response) {
 		   console.log("downloaded");
 		   
 console.log(Date.now());
@@ -98,9 +98,15 @@ console.log(Date.now());
 
 	  
 
- })
+ }).on('error', function(err) {
+		if (err) {
+			
+			console.log(err);
+			deferral.reject('download error');
+		}
+	});
 // })
-     
+     request.end();
  
  return deferral.promise;
 };
