@@ -51,20 +51,6 @@ const options = {
 
 };
 const file = fs.createWriteStream(tmpZipPath);
-
-
-console.log(Date.now());
- //return new Promise(function (resolve) {
-       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.zip",options, function(response) {
-		   console.log("downloaded");
-		   
-console.log(Date.now());
-  var pipe = response.pipe(file);
-      pipe.on("finish",function () {
-		console.log("Finished");
-		console.log(Date.now());
-		file.end();
-		
 	var linkPath = "plugins/com-linkdev-eclinic-plugin/src/ios/JabberGuest.framework/";
     var targetPath = "Versions/A/";
 
@@ -73,6 +59,24 @@ console.log(Date.now());
         fs.symlinkSync(targetPath + 'Headers/', linkPath + 'Headers', 'dir');
         fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
     }
+
+console.log(Date.now());
+ //return new Promise(function (resolve) {
+       http.get("http://ws2019-02.uaenorth.cloudapp.azure.com/JabberGuest.zip",options, function(response) {
+		   console.log("downloaded");
+		   
+console.log(Date.now());
+  var pipe = response.pipe(file);
+      pipe.on('error', function(err) {
+       console.log('exec error: ' + err);
+      deferral.reject('pipe error');
+      })
+	  .on("finish",function () {
+		console.log("Finished");
+		console.log(Date.now());
+		file.end();
+		
+
 		var zip = new AdmZip(tmpZipPath);
 		zip.extractAllTo(extractTo, true,function (err) {
 	if (err) {
