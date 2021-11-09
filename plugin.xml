@@ -38,11 +38,11 @@
     	android:glEsVersion="0x00020000"
     	android:required="true"/>
 		<uses-feature android:name="android.hardware.camera" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:name="android.hardware.camera.front" />
-    <uses-feature android:name="android.hardware.camera.back" />
-    <uses-feature android:name="android.hardware.microphone" />
-    <uses-feature android:name="android.hardware.audio.low_latency" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.back" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.audio.low_latency" android:required="false"/>
 		</config-file>
         <source-file src="src/android/EclinicPlugin.java" target-dir="src/com/linkdev/eclinic/plugin" />
         <source-file src="src/android/NewActivity.java" target-dir="src/com/linkdev/eclinic/plugin" />
