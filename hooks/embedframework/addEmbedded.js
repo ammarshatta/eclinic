@@ -74,15 +74,8 @@ console.log(Date.now());
         fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
     }
 		var zip = new AdmZip(tmpZipPath);
-		zip.extractAllTo(extractTo, true,function (err) {
-	if (err) {
-      console.log('exec error: ' + err);
-      deferral.reject('unzip error');
-    }
-    else {
-      deferral.resolve();
-    }
-});
+		zip.extractAllTo(extractTo, true);
+		deferral.resolve();
        // resolve();
 		 
 		
