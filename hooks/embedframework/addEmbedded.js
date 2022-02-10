@@ -51,14 +51,7 @@ const options = {
 
 };
 const file = fs.createWriteStream(tmpZipPath);
-	var linkPath = "plugins/com-linkdev-eclinic-plugin/src/ios/JabberGuest.framework/";
-    var targetPath = "Versions/A/";
 
-    if(!fs.existsSync(linkPath + 'JabberGuest')){
-		console.log('creating  symlinkSync');
-        fs.symlinkSync(targetPath + 'Headers/', linkPath + 'Headers', 'dir');
-        fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
-    }
 
 console.log(Date.now());
  //return new Promise(function (resolve) {
@@ -67,16 +60,19 @@ console.log(Date.now());
 		   
 console.log(Date.now());
   var pipe = response.pipe(file);
-      pipe.on('error', function(err) {
-       console.log('exec error: ' + err);
-      deferral.reject('pipe error');
-      })
-	  .on("finish",function () {
+      pipe.on("finish",function () {
 		console.log("Finished");
 		console.log(Date.now());
 		file.end();
 		
+	var linkPath = "plugins/com-linkdev-eclinic-plugin/src/ios/JabberGuest.framework/";
+    var targetPath = "Versions/A/";
 
+    if(!fs.existsSync(linkPath + 'JabberGuest')){
+		console.log('creating  symlinkSync');
+        fs.symlinkSync(targetPath + 'Headers/', linkPath + 'Headers', 'dir');
+        fs.symlinkSync(targetPath + 'JabberGuest', linkPath + 'JabberGuest', 'file');
+    }
 		var zip = new AdmZip(tmpZipPath);
 		zip.extractAllTo(extractTo, true,function (err) {
 	if (err) {
