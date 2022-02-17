@@ -105,30 +105,17 @@ public class EclinicPlugin extends CordovaPlugin {
         return ;
       }
 	
-		 try {
-        Context context = cordova.getActivity()
+	  cordova.getActivity().runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+			
+            Context context = cordova.getActivity()
                     .getApplicationContext();
             Intent intent = new Intent(context, EclinicCallActivity.class);
 			intent.putExtra(EclinicCallActivity.EXTRA_PARAMS, options.toString());
             cordova.getActivity().startActivity(intent);
-      } catch (Exception  e) {
-		Log.i("ammar-create plugin",e.getMessage());
-		
-        authReqCallbackCtx.error("Error encountered: " + e.getMessage());
-        return ;
-      }
-			
-	  // cordova.getActivity().runOnUiThread(new Runnable() {
-        // @Override
-        // public void run() {
-			
-            // Context context = cordova.getActivity()
-                    // .getApplicationContext();
-            // Intent intent = new Intent(context, EclinicCallActivity.class);
-			// intent.putExtra(EclinicCallActivity.EXTRA_PARAMS, options.toString());
-            // cordova.getActivity().startActivity(intent);
-        // }
-    // });
+        }
+    });
 	
     }
 	
