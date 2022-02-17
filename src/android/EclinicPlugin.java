@@ -106,9 +106,9 @@ public class EclinicPlugin extends CordovaPlugin {
       }
 	
 		 try {
-        Context context = cordova.getActivity()
+        Context cordovaContext = cordova.getActivity()
                     .getApplicationContext();
-            Intent intent = new Intent(context, EclinicCallActivity.class);
+            Intent intent = new Intent(cordovaContext, EclinicCallActivity.class);
 			intent.putExtra(EclinicCallActivity.EXTRA_PARAMS, options.toString());
             cordova.getActivity().startActivity(intent);
       } catch (Exception  e) {
