@@ -12,36 +12,36 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSBundle (Language)
-+(void)setLanguage:(NSString*)language;
-@end
+// @interface NSBundle (Language)
+// +(void)setLanguage:(NSString*)language;
+// @end
 
-#import <objc/runtime.h>
+// #import <objc/runtime.h>
 
-static const char _bundle=0;
+// static const char _bundle=0;
 
-@interface BundleEx : NSBundle
-@end
+// @interface BundleEx : NSBundle
+// @end
 
-@implementation BundleEx
--(NSString*)localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName
-{
-    NSBundle* bundle=objc_getAssociatedObject(self, &_bundle);
-    return bundle ? [bundle localizedStringForKey:key value:value table:tableName] : [super localizedStringForKey:key value:value table:tableName];
-}
-@end
+// @implementation BundleEx
+// -(NSString*)localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName
+// {
+    // NSBundle* bundle=objc_getAssociatedObject(self, &_bundle);
+    // return bundle ? [bundle localizedStringForKey:key value:value table:tableName] : [super localizedStringForKey:key value:value table:tableName];
+// }
+// @end
 
-@implementation NSBundle (Language)
-+(void)setLanguage:(NSString*)language
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^
-    {
-        object_setClass([NSBundle mainBundle],[BundleEx class]);
-    });
-    objc_setAssociatedObject([NSBundle mainBundle], &_bundle, language ? [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:language ofType:@"lproj"]] : nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-@end
+// @implementation NSBundle (Language)
+// +(void)setLanguage:(NSString*)language
+// {
+    // static dispatch_once_t onceToken;
+    // dispatch_once(&onceToken, ^
+    // {
+        // object_setClass([NSBundle mainBundle],[BundleEx class]);
+    // });
+    // objc_setAssociatedObject([NSBundle mainBundle], &_bundle, language ? [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:language ofType:@"lproj"]] : nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+// }
+// @end
 //--------------- Demo ---------------------------------
 
 static BOOL hasError;
@@ -230,17 +230,17 @@ static BOOL hasError;
 
 	// NSBundle* languageBundle = [NSBundle bundleWithPath:path];
 	
-	if ([_langlower containsString:@"en"]) {
-	  [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
-	  [NSBundle setLanguage:@"en"];
-	  NSLog(@"en selected");
-	} else {
-	 [NSBundle setLanguage:@"ar"];
-	  NSLog(@"ar selected");
-	    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
-	}
+	// if ([_langlower containsString:@"en"]) {
+	  // [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
+	  // [NSBundle setLanguage:@"en"];
+	  // NSLog(@"en selected");
+	// } else {
+	 // [NSBundle setLanguage:@"ar"];
+	  // NSLog(@"ar selected");
+	    // [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
+	// }
 
-   [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
+   // [[NSUserDefaults standardUserDefaults] synchronize]; //to make the change immediate
    
 	// AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     // NSString *storyboardName = @"Main";
@@ -248,13 +248,13 @@ static BOOL hasError;
     // delegate.window.rootViewController = [storybaord instantiateInitialViewController];
    
    // refresh
-	   NSArray *windows = [UIApplication sharedApplication].windows;
-		for (UIWindow *window in windows) {
-			for (UIView *view in window.subviews) {
-			[view removeFromSuperview];
-			[window addSubview:view];
-		}
-	}
+	   // NSArray *windows = [UIApplication sharedApplication].windows;
+		// for (UIWindow *window in windows) {
+			// for (UIView *view in window.subviews) {
+			// [view removeFromSuperview];
+			// [window addSubview:view];
+		// }
+	// }
    
    //end
    
