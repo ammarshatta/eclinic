@@ -66,7 +66,7 @@
             <string>This app needs access to the Network to make Video calls.</string>
     </config-file>
     <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
-            <string>This app needs access to the icrophone to make Video calls.</string>
+            <string>This app needs access to the Microphone to make Video calls.</string>
     </config-file>
 	<config-file platform="ios" target="*-Info.plist" parent="CFBundleLocalizations">
                 <array>

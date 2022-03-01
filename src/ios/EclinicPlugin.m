@@ -416,7 +416,7 @@ static BOOL hasError;
 
 - (void)handleError:(NSNotification *)notification
    {
-       if(!hasError){
+      // if(!hasError){
            NSError * error = [[notification userInfo] valueForKey:CJGuestCallErrorKey];
            
            hasError = true;
@@ -438,7 +438,7 @@ static BOOL hasError;
 
            [[jabberGCall presentingViewController] dismissViewControllerAnimated:YES completion:invoke];
            NSLog(@"Jabber Guest error: %s", error.localizedDescription.UTF8String);
-       }
+      // }
        
    }
 
