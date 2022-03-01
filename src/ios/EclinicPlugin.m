@@ -326,39 +326,43 @@ static BOOL hasError;
 {
    // [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+	 NSLog(@"Jabber Guest memory warning: %s", "didReceiveMemoryWarning");
 }
-- (void)moreButtonPressedForCallController:(CJGuestCallViewController *)callController
-{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-//                                                       message:@"...Do you want to Exit the call?"
-//                                                      delegate:self
-//                                             cancelButtonTitle:@"No"
-//                                             otherButtonTitles:@"Yes", nil];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                           message:@"Thanks for using our Application"
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Ok"
-                                                 otherButtonTitles: nil];
+
+//comment for ios issue
+// - (void)moreButtonPressedForCallController:(CJGuestCallViewController *)callController
+// {
+// //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+// //                                                       message:@"...Do you want to Exit the call?"
+// //                                                      delegate:self
+// //                                             cancelButtonTitle:@"No"
+// //                                             otherButtonTitles:@"Yes", nil];
+        // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                           // message:@"Thanks for using our Application"
+                                                          // delegate:self
+                                                 // cancelButtonTitle:@"Ok"
+                                                 // otherButtonTitles: nil];
         
-       [alert show];
+       // [alert show];
    
-}
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    switch(buttonIndex) {
-        case 0: //"No" pressed
-            //do something?
-            break;
-        case 1: //"Yes" pressed
-            //here you pop the viewController
-        {
-           // [self closeCall];
-            break;
-        }
+// }
+//comment for ios issue
+// - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+// {
+    // switch(buttonIndex) {
+        // case 0: //"No" pressed
+            // //do something?
+            // break;
+        // case 1: //"Yes" pressed
+            // //here you pop the viewController
+        // {
+           // // [self closeCall];
+            // break;
+        // }
            
             
-    }
-}
+    // }
+// }
 -(void)closeCall{
     
     __weak CJGuestCallViewController* jabberGCall = jabberG;
