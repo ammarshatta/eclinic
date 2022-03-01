@@ -70,7 +70,7 @@ static BOOL hasError;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleError:) name:CJGuestCallErrorNotification object:nil];
     hasError= false;
     self->callbackId =command.callbackId;
-    [self showAlert:command];
+    [self showCall:command];
 
 //    CDVPluginResult* pluginResult = nil;
        // NSString* server = [command.arguments objectAtIndex:0];
@@ -215,8 +215,11 @@ static BOOL hasError;
 
 
 
-- (void)showAlert:(CDVInvokedUrlCommand*)command  {
-
+- (void)showCall:(CDVInvokedUrlCommand*)command  {
+	
+	
+	@try {
+        
     NSDictionary* _args=  [command argumentAtIndex:0 withDefault:nil];
     
     NSString* _server = _args[@"server"];
@@ -313,6 +316,34 @@ static BOOL hasError;
        
         });
     
+    }
+    @catch (NSException *exception) {
+        // deal with the exception
+		NSString *errorDescription = [exception.error.userInfo valueForKey:NSLocalizedDescriptionKey];
+		 NSLog(@"Jabber Guest NSException: %s",errorDescription );
+	__weak EclinicPlugin* weakSelf = self;
+
+    dispatch_block_t invoke = ^ (void) {
+        CDVPluginResult* result;
+        
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:errorDescription];
+        
+
+
+       
+        [weakSelf.commandDelegate sendPluginResult:result callbackId:self->callbackId];
+
+        
+    };
+		
+		    
+		
+    }
+    @finally {
+        // optional block of clean-up code
+        // executed whether or not an exception occurred
+    }
+
     
 
     
